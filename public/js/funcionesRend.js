@@ -912,6 +912,7 @@ $('#btnMatriz').click(function(){
 			$.ajax({
 				beforeSend: function(){
 			    	//console.log('eliminando datos de la DB...')
+			    	$('#btnGuardarRend').attr("disabled", true); //Este es un ejemplo. Revisar si funciona para que no se envíe dos veces un form
 				},
 						
 				cache: false,
@@ -940,6 +941,7 @@ $('#btnMatriz').click(function(){
 							$('#pestaña1').css({'font-weight': 'normal'});
 							$('#pestaña2').css({'color': '#000000'});
 							$('#pestaña1').css({'color': '#CCC'});
+							$('#btnGuardarRend').attr("disabled", false); //Este es un ejemplo. Revisar si funciona para que no se envíe dos veces un form
 			            });
 
 			            cargargridrend();
@@ -1317,7 +1319,9 @@ function acceptNum(evt){
 
 function NumCheck(e, field) {
     key = e.keyCode ? e.keyCode : e.which;
-    if (key === 8)
+    if (key === 8) //Para backspace, borrar nuemros
+        return true;
+    if (key === 45) //Para signo negativo
         return true;
     if (field.value !== "") {
         if ((field.value.indexOf(",")) > 0) {

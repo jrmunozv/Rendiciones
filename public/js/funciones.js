@@ -72,7 +72,13 @@ $(document).ready(function(){
             //alert("hola");
             //$('#mnuArticulo').html(mnuEArticulo);
             $('#usuariosel').attr("disabled", true)
-
+            
+            // definimos lo que queremos hacer en el click primero 
+            $("#home2").click(function() { 
+                 location.href = this.href; // ir al link 
+            });
+            // lanzamos la llamada al evento click
+            $('#home2').click();
 
             
         },

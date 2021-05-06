@@ -196,7 +196,7 @@ class  Tablas extends Conexion
 			$reg3 = $res3->fetch_array(MYSQLI_ASSOC);
 
 			$sql4 = "SELECT SUM(monto) AS total FROM detrend 
-		             WHERE id_detRend = '".$datos['id_encrend']."'";
+		             WHERE id_detRend = '".$datos['id_encrend']."' AND elim= 1";
 			$res4= $this->conn->query($sql4);
 			$reg4 = $res4->fetch_array(MYSQLI_ASSOC);
 			$total= $reg4['total'];

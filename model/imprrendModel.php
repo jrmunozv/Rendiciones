@@ -29,7 +29,7 @@ class Comprobante extends Conexion
 		$tipocuenta= $reg['tipocuenta'];
 		$nrocuenta= $reg['nrocuenta'];
 		$banco= $reg['banco'];
-		$observacion= $reg['observacion'];
+		$observacion= utf8_decode($reg['observacion']);
 		
 		
 
@@ -173,7 +173,7 @@ class Comprobante extends Conexion
 			$res2= $this->conn->query($sql2);
 			$reg2 = $res2->fetch_array(MYSQLI_ASSOC);
 			$nombreprov= $reg2['nombre'];
-			$nombreprov= substr($nombreprov, 0, 22);
+			$nombreprov= substr($nombreprov, 0, 18);
 
 
 			$largo= $pdf->GetStringWidth($concepto);
@@ -227,6 +227,7 @@ class Comprobante extends Conexion
 			}
 			
 			$pdf->SetXY($posx, $posy);
+			$matriz= substr($matriz, 0, 50);
 			$pdf->Cell(69, $alto, $matriz, 1, 0, 'L', false);
 			$pdf->Cell(15, $alto, number_format($monto, 0, ',', '.'), 1, 0, 'R', false);
 				
@@ -293,10 +294,10 @@ class Comprobante extends Conexion
 		$pdf->SetFont('Arial', '', 8);
 
 		$pdf->Ln(4);
-		$pdf->Image('../public/images/'.$imgfirma , 140, 212 , 30, null,'PNG');
+		//$pdf->Image('../public/images/'.$imgfirma , 140, 212 , 30, null,'PNG');
 
 
-		$pdf->SetY(238);
+		$pdf->SetY(245);
 		$pdf->SetFont('Arial', '', 7);
 		$pdf->Cell(125, 3, '', 0, 0, 'L', false);
 		$pdf->Cell(40, 3, utf8_decode($usuario_sel), 0, 0, 'C', false);
@@ -347,7 +348,8 @@ class Comprobante extends Conexion
 			$res2= $this->conn->query($sql2);
 			$reg2 = $res2->fetch_array(MYSQLI_ASSOC);
 			$monto= $reg2['monto'];
-
+            
+            $matriz= substr($matriz, 0, 50);
 			$pdf->Cell(69, 4, $matriz, 1, 0, 'L', false);
 			$pdf->Cell(15, 4, number_format($monto, 0, ',', '.'), 1, 0, 'R', false);
 			$pdf->Ln(4);
@@ -364,7 +366,7 @@ class Comprobante extends Conexion
 
 		
 		//$pdf->Output('Comprobante.pdf','D');
-		$pdf->Output('Comprobante.pdf', 'I');
+		$pdf->Output('Rendicion.pdf', 'I');
 	}
 
 

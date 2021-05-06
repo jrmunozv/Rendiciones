@@ -993,7 +993,7 @@ class  Rendiciones extends Conexion
 				}
 
 				//VALIDAR TAMAÑO ARCHIVO
-				if ( $_FILES["file"]["size"] > 1000000 )
+				if ( $_FILES["file"]["size"] > 3000000 )
 				{
 					$errors[] = 'El archivo supera el tamano permitido. ';
 				}
