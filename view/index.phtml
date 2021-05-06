@@ -1,0 +1,151 @@
+<!DOCTYPE html >
+<html lang= "es" >
+<head>
+	<title>..:: Log in ::..</title>
+    <meta charset = "utf-8" />
+    <meta name="description" content="Bienvenido" />
+    <meta name = "viewport" content ="width= devide-with, inicial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href= "<?php echo Conexion::ruta();?>public/images/favicon.ico" />
+    <link rel="author" type="text/plain" href= "humans.txt" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href= "sitemap.xml" />
+    
+    <link href="<?php echo Conexion::ruta();?>public/css/smoothness/jquery-ui-1.8.23.custom.css" rel="stylesheet" media="screen">
+ 	
+    <link rel="stylesheet" href= "<?php echo Conexion::ruta();?>public/css/estilos.css" />
+    <link rel="stylesheet" href= "<?php echo Conexion::ruta();?>public/css/menu.css" />
+ 
+	<script type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/jquery/jquery.1.8.1.js"></script>
+	<script type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/jquery_ui/jquery-ui-1.8.23.custom.min.js"></script>
+    
+    
+	<script language="javascript" type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/funciones.js"></script>
+  
+
+</head>
+
+<body onload="muestraReloj();document.form.reset();document.form.login.focus();">
+    <header>
+        <!--  START HEADER -->
+        <div id="header">
+            <!--  START HEAD_WRAP -->
+            <?php include("headerinicial.phtml");?>
+            <!--  END HEAD_WRAP -->
+        </div><!--  end div #header -->
+        <!--  END HEADER -->   
+    </header>
+    
+    <section id="contenido">
+        <section id="principal">
+            <article id="Info">
+                <!--  START CONTENT WRAPPER -->
+                <div id="content_wrapper">
+                    <!--  START PRIMARY CONTENT -->
+                    <div id="primary_content">
+                        <?php
+                        if(isset($_GET["ide"]))
+                        {
+                            switch ($_GET["ide"])
+                            {
+                                case '1':
+                                    ?>
+                                    <div class="fail large png_bg">Los datos ingresados no son correctos.</div>
+                                    <?php
+                                break;
+                                
+                                case '2':
+                                    ?>
+                                    <div class="attention large png_bg">Debe estar logueado para ver este contenido.</div>
+                                    <?php
+                                break;
+                                case '3':
+                                    ?>
+                                    <div class="success large png_bg">Ha cerrado su sesión correctamente.</div>
+                                    <?php
+                                break;
+                            }
+                        }
+                        ?>
+                        <h2>Ingresar al sistema</h2>
+                        <p>Debe loguearse para acceder a los servicios de esta web empresa.</p>
+                        
+                        
+                        <!--<div class="information large png_bg">For the demo, just hit the login button</div>-->
+                        
+                        <form action="" method="post" name="form">
+                        	<fieldset>
+                        		<legend>Ingresar al sistema</legend>
+	                        	<table>
+			                          <tr>
+			                          	<td valign="top" align="left">
+			                            	<label for="login">Login:</label>
+			                          	</td>
+			                          	<td valign="top" align="left">
+			                            	<input name="login" type="text" class="fade" id="login" value="" required />
+			                           	</td>     
+			        				  </tr>
+
+			        				  <tr></tr>
+			        				  <tr></tr>
+
+			        				  <tr>
+			                            <td valign="top" align="left">
+			                            	<label for="password">Password:</label>
+			                           	</td>
+			                            <td valign="top" align="left">
+			                            	<input name="pass" type="password" class="fade" id="pass" value="" required />
+			                           	</td>
+			                          </tr>
+
+			                          <tr></tr>
+			                          <tr></tr>
+
+			                          <tr>
+			                          	<td valign="top" align="left">
+			                            	<input type="button" value="Entrar"  class="button" onclick="valida_logueo()"/>
+			                          	</td>
+			                          	<td valign="top" align="left">
+			                            	<input type="button"  value="Limpiar" class="button" onclick="window.location='<?php echo Conexion::ruta();?>';" />
+			                           	</td>      	
+			                          </tr>
+
+			                          <tr>
+			                          	<td valign="top" align="left">
+			                            	<input type="hidden" name="grabar" value="si" />
+			                            	<p><div id="valor"></div></p>	
+			                          	</td>
+			                          </tr>
+	                        	</table>
+                        	</fieldset>
+                        </form>    
+                        
+                        
+                    </div>
+                    <!--  END PRIMARY CONTENT -->   
+                      
+                </div><!--  end div #content_wrapper -->
+                <!--  END CONTENT_WRAPPER -->
+        	</article>
+        </section>
+        
+        <aside>
+        	<!--  START SIDEBAR -->
+            <?php include("sidebar.phtml");?>
+            <!--  end div #sidebar -->
+            <!--  END SIDEBAR -->
+        
+        </aside>
+        
+        
+    </section>
+    
+    <footer>
+        <!--  START FOOTER -->
+        <div id="footer">
+            <p>
+            <?php include("footerinicial.phtml");?>
+            </p>
+        </div>
+        <!--  END CEND -->
+    </footer>
+</body>
+</html>

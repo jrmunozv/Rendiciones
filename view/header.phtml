@@ -1,0 +1,34 @@
+<div id="head_wrap">	
+	<!--  START LOGO -->
+    <div id="logo">
+        <h1>
+            <a href="<?php echo Conexion::ruta();?>" title="Intranet">
+            	<img class="fade" alt="Sistemas" src="<?php echo Conexion::ruta();?>public/images/LogoSB.png" border="0" />
+            </a>
+        </h1>
+    </div>
+    
+    <!--  END LOGO  -->
+	
+	<!--  START LOGIN -->
+    <div id="login">
+        <!-- MODAL LINK - POINT THIS LINK TO YOUR EXTERNAL HTML FILE AND AMEND THE HEIGHT/WIDTH ACCORDINGLY -->
+        <p>Bienvenido(a): <span class="highlight"><?php echo $_SESSION["backend_login"];?> </span>
+    
+        &nbsp;&nbsp;||&nbsp;&nbsp;
+        <span id="spanreloj" class="highlight"></span>
+        &nbsp;&nbsp;||&nbsp;&nbsp;
+        <span class="highlight"><?php echo Conexion::fecha();?></span>
+        &nbsp;&nbsp;||&nbsp;&nbsp;
+        <a href="<?php echo Conexion::ruta();?>logout/" title="Cerrar mi Sesi&oacute;n"><span class="highlight">Cerrar mi sesi&oacute;n</span></a>
+	</div>
+    <!--  END LOGO  -->	
+	
+    <!--  START NAVIGATION -->
+    <!-- the class "active" is used to highlight the current/active linke -->
+    <div id="nav">
+       <?php require_once("menu.phtml");?>
+    </div> <!--  end div #nav -->
+    <!--  END NAVIGATION -->
+    
+</div><!--  end div #head_wrap -->

@@ -1,0 +1,301 @@
+<!DOCTYPE html >
+<html lang= "es" >
+<head>
+	<title>..:: Auxiliares ::..</title>
+    <meta charset = "utf-8" />
+    <meta name="description" content="Bienvenido a mi sitio" />
+    <meta name = "viewport" content ="width= devide-with, inicial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href= "<?php echo Conexion::ruta();?>public/images/favicon.ico" />
+    <link rel="author" type="text/plain" href= "humans.txt" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href= "sitemap.xml" />
+ 	
+    <link href="<?php echo Conexion::ruta();?>public/css/smoothness/jquery-ui-1.8.23.custom.css" rel="stylesheet" media="screen">
+
+    <!--
+    <link rel="stylesheet" href= "<?php //echo Conexion::ruta();?>public/css/datatables.css" />
+    <link rel="stylesheet" href= "<?php //echo Conexion::ruta();?>public/css/TableTools.css" />
+    -->
+
+    <link rel="stylesheet" href= "<?php echo Conexion::ruta();?>public/css/buttons.dataTables.min.css" />
+    <link rel="stylesheet" href= "<?php echo Conexion::ruta();?>public/css/jquery.dataTables.min.css" />
+
+	
+    <link rel="stylesheet" href= "<?php echo Conexion::ruta();?>public/css/estilos.css" />
+    <link rel="stylesheet" href= "<?php echo Conexion::ruta();?>public/css/menu.css" />
+
+
+    
+  
+    <script type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/jquery/jquery.1.8.1.js"></script>
+	<script type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/jquery_ui/jquery-ui-1.8.23.custom.min.js"></script>
+    <script type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/datatables.js"></script>
+    
+    <!--<script type="text/javascript" src="<?php //echo Conexion::ruta();?>public/js/TableTools.js"></script> -->
+    
+    <script type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/pdfmake.min.js"></script>
+    <script type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/buttons.print.min.js"></script>
+    <script type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/jszip.min.js"></script>
+    <script type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/vfs_fonts.js"></script>
+
+
+    
+	<script language="javascript" type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/funciones.js"></script>
+    <script language="javascript" type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/funcionesAux.js"></script>
+   
+   
+</head>
+
+<body onload="muestraReloj(); document.form.reset();document.form.id.focus();">
+    <header>
+        <!--  START HEADER -->
+        <div id="header">
+            <!--  START HEAD_WRAP -->
+            <?php include("header.phtml");?>
+            <!--  END HEAD_WRAP -->
+        </div><!--  end div #header -->
+        <!--  END HEADER -->   
+    </header>
+    
+    <section id="contenido">
+        <section id="principal">
+            <article id="Info">
+                <!--  START CONTENT WRAPPER -->
+                <div id="content_wrapper">
+                    <!--  START PRIMARY CONTENT -->
+                    <div id="primary_content">
+						<h3>Maestro Auxiliares</h3>
+						<div id="MenuDatos">
+                            <table>
+                                <tr>
+                                    <td valign="middle" align="left">
+                                    <div id="btnPrimerAux"><a href="javascript:void(0);" data-accion="ultimo" title="Primer Registro"><img src="<?php echo Conexion::ruta();?>public/images/resultset_first.png" border="0" width="24" height="24" /></a></div>
+                                    </td>
+                                    
+                                    <td valign="middle" align="left">
+                                    <div id="btnAnteriorAux"><a href="javascript:void(0);" data-accion="anterior" title="Anterior"><img src="<?php echo Conexion::ruta();?>public/images/resultset_previous.png" border="0" width="24" height="24" /></a></div>
+                                    </td>
+                                    
+                                    <td valign="middle" align="left">
+                                    <div id="btnSiguienteAux"><a href="javascript:void(0);" data-accion="siguiente" title="Siguiente"><img src="<?php echo Conexion::ruta();?>public/images/resultset_next.png" border="0" width="24" height="24" /></a></div>
+                                    </td>
+                                    
+                                    <td valign="middle" align="left">
+                                    <div id="btnUltimoAux"><a href="javascript:void(0);" data-accion="ultimo" title="Ultimo Registro" ><img src="<?php echo Conexion::ruta();?>public/images/resultset_last.png" border="0" width="24" height="24" /></a></div>
+                                    </td>
+                                    
+                                    <td valign="middle" align="left" width="30">
+                                    <a href="" title=""></a>
+                                    </td>
+                                    
+                                    <td valign="middle" align="left">
+                                    <a href="<?php echo Conexion::ruta();?>auxiliar/"  title="Nuevo Registro"><img src="<?php echo Conexion::ruta();?>public/images/server_add.png" border="0" width="24" height="24" /></a>
+                                    </td>
+                                    
+                                    <td valign="middle" align="left" >
+                                    <div id="btnGuardarAux"><a href="javascript:void(0);" data-accion="guardar" title="Guardar Registro" ><img src="<?php echo Conexion::ruta();?>public/images/save_as.png" border="0" width="24" height="24" /></a></div>
+                                    </td>
+                                    
+                                    <td valign="middle" align="left">
+                                    <div id="btnBorrarAux"><a href="javascript:void(0);" data-accion="eliminar" title="Eliminar Registo" ><img src="<?php echo Conexion::ruta();?>public/images/bin_empty.png" border="0" width="24" height="24" /></a></div>
+                                    </td>
+                                    
+                                    <td valign="middle" align="left" width="20">
+                                    <a href="" title=""></a>
+                                    </td>
+                                    
+                                    <td valign="middle" align="left" >
+                                   <div id="btnImprimirAux"><a href="javascript:void(0);" onclick="" title="Imprimir" ><img src="<?php echo Conexion::ruta();?>public/images/printer.png" border="0" width="24" height="24" /></a></div>
+                                   </td>
+                                </tr>
+                            </table>
+                        </div>	
+						<form action="" method="post" name="form" enctype="multipart/form-data">
+							<fieldset>
+                            	<legend>Datos</legend>
+                                <table>
+                                    <!--
+                                    <tr>
+                                        <td valign="top" align="left">
+                                            <label for="idaux">Id:</label>
+                                        </td>
+                                        <td valign="top" align="left">
+                                            <input name="idaux" type="text" class="fade" id="idaux" value="" style="width:30px" readonly required />
+                                        </td>
+                                    </tr>
+                                    -->
+                                    <tr>
+                                        <td valign="top" align="left">
+                                            <label for="rut">Rut:</label>
+                                        </td>
+
+                                        <td valign="top" align="left">
+                                            <input name="rut" type="text" class="fade" id="rut" value="" onkeypress="return soloNumeros(event);" onblur="buscar()" required/>
+                                        </td>
+
+                                        <td valign="top" align="left" width="24">
+                                            <input name="dv" type="text" class="fade" id="dv" value="" required />
+                                        </td>
+
+                                        <td align="center">
+                                             <div id="btnMaestroAux"><a href="javascript:void(0);" data-accion="" title="Buscar Registro" ><img src="<?php echo Conexion::ruta();?>public/images/search_button_32.png" border="0" width="24" height="24" /></a></div>
+                                             <!-- 
+                                             <a href="" title="Buscar Registro" onclick="popupArt()"><img src="<?php //echo Conexion::ruta();?>public/images/search_button_32.png" border="0" width="24" height="24"></a>
+                                             -->
+                                        </td>
+                                        
+                                    </tr>
+                                        
+                                    <tr>
+                                        <td valign="top" align="left" >
+                                            <label for="nombre">Razon social:</label>
+                                        </td>
+                                        <td valign="top" align="left">
+                                            <input name="nombre_auxiliar" type="text" class="fade" id="nombre" value=""  required />
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td valign="top" align="left">
+                                            <label for="direccion">Direccion:</label>
+                                        </td>
+                                        <td valign="top" align="left">
+                                            <input name="direccion" type="text" class="fade" id="direccion" value="" required />
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td valign="top" align="left">
+                                            <label for="comuna">Comuna:</label>
+                                        </td>
+                                        <td valign="top" align="left">
+                                            <input name="comuna" type="text" class="fade" id="comuna" value="" required />
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td valign="top" align="left">
+                                            <label for="telefono">Telefono:</label>
+                                        </td>
+                                        <td valign="top" align="left">
+                                            <input name="telefono" type="text" class="fade" id="telefono" value="" onkeypress="return soloNumeros(event);" required/>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td valign="top" align="left">
+                                            <label for="celular">Celular:</label>
+                                        </td>
+                                        <td valign="top" align="left">
+                                            <input name="celular" type="text" class="fade" id="celular" value="" required />
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td valign="top" align="left">
+                                            <label for="mail">Mail:</label>
+                                        </td>
+                                        <td valign="top" align="left">
+                                            <input name="mail" type="text" class="fade" id="mail" value="" required />
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td valign="top" align="left">
+                                            <label for="contacto">Contacto:</label>
+                                        </td>
+                                        <td valign="top" align="left">
+                                            <input name="contacto" type="text" class="fade" id="contacto" value="" required />
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td valign="top" align="left">
+                                            <label for="ctacte">Cuenta Corriente:</label>
+                                        </td>
+                                        <td valign="top" align="left">
+                                            <input name="ctacte" type="text" class="fade" id="ctacte" value="" required />
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td valign="top" align="left">
+                                            <label for="banco">Banco:</label>
+                                        </td>
+                                        <td valign="top" align="left">
+                                            <input name="banco" type="text" class="fade" id="banco" value="" required />
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td valign="top" align="left">
+                                            <label for="estado">Estado (Vigente/No vigente):</label>
+                                        </td>
+                                        <td valign="center" align="left">
+                                            <input name="estado" type="checkbox" id="estado"/>
+                                        </td>  
+                                    </tr> 
+
+                                    <tr>
+                                    	<td valign="top" align="left">
+                                            <input type="hidden" id="reg" name="reg" value="0" />
+                                        </td>
+                                    </tr>
+                                    
+                                </table>
+                            </fieldset>
+						</form>
+                        <div id="dialogo-borrarAux" title="Eliminar Registro" style="display:none;">
+                            <p>El registro se eliminará permanentemente de la Base de Datos. ¿Desea continuar?</p>
+                        </div>
+                        <div id="dialogo-maestroAux" title="Maestro de Registros" style="display:none;">
+                            <table id="tableAux" class="display" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Rut</th>
+                                        <th>Nombre</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="listaauxiliares">
+                                    
+                                </tbody>
+                                
+                                <tfoot>
+                                </tfoot>
+                                
+                            </table>  
+                        </div>
+             			
+					</div>
+					<!--  END PRIMARY CONTENT -->   
+                </div><!--  end div #content_wrapper -->
+                <!--  END CONTENT_WRAPPER -->
+        	</article>
+        </section>
+        
+        <aside>
+        	<!--  START SIDEBAR -->
+            <?php include("sidebar.phtml");?>
+            <!--  end div #sidebar -->
+            <!--  END SIDEBAR -->
+        
+        </aside>
+        
+        
+    </section>
+    
+    <footer>
+        <!--  START FOOTER -->
+        <div id="footer">
+            <p>
+            <?php include("footer.phtml");?>
+            </p>
+        </div>
+        <!--  END CEND -->
+    </footer>
+</body>
+</html>
+

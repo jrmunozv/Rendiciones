@@ -1,0 +1,764 @@
+<!DOCTYPE html >
+<html lang= "es" >
+<head>
+	<title>..:: Orden de Compra ::..</title>
+    <meta charset = "utf-8" />
+    <meta name="description" content="Bienvenido a mi sitio" />
+    <meta name = "viewport" content ="width= devide-with, inicial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href= "<?php echo Conectar::ruta();?>public/images/favicon.ico" />
+    <link rel="author" type="text/plain" href= "humans.txt" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href= "sitemap.xml" />
+    
+    <link href="<?php echo Conectar::ruta();?>public/css/smoothness/jquery-ui-1.8.23.custom.css" rel="stylesheet" media="screen">
+ 	
+    <!--
+    <link rel="stylesheet" href= "<?php //echo Conectar::ruta();?>public/css/datatables.css" />
+    <link rel="stylesheet" href= "<?php //echo Conectar::ruta();?>public/css/TableTools.css" />
+    -->
+
+    <link rel="stylesheet" href= "<?php echo Conectar::ruta();?>public/css/buttons.dataTables.min.css" />
+    <link rel="stylesheet" href= "<?php echo Conectar::ruta();?>public/css/jquery.dataTables.min.css" />
+
+    
+    <link rel="stylesheet" href= "<?php echo Conectar::ruta();?>public/css/estilos.css" />
+    <link rel="stylesheet" href= "<?php echo Conectar::ruta();?>public/css/menu.css" />
+
+
+    
+  
+    <script type="text/javascript" src="<?php echo Conectar::ruta();?>public/js/jquery/jquery.1.8.1.js"></script>
+    <script type="text/javascript" src="<?php echo Conectar::ruta();?>public/js/jquery_ui/jquery-ui-1.8.23.custom.min.js"></script>
+    <script type="text/javascript" src="<?php echo Conectar::ruta();?>public/js/datatables.js"></script>
+    
+    <!--<script type="text/javascript" src="<?php //echo Conectar::ruta();?>public/js/TableTools.js"></script> -->
+    
+    <script type="text/javascript" src="<?php echo Conectar::ruta();?>public/js/pdfmake.min.js"></script>
+    <script type="text/javascript" src="<?php echo Conectar::ruta();?>public/js/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="<?php echo Conectar::ruta();?>public/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="<?php echo Conectar::ruta();?>public/js/buttons.print.min.js"></script>
+    <script type="text/javascript" src="<?php echo Conectar::ruta();?>public/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="<?php echo Conectar::ruta();?>public/js/jszip.min.js"></script>
+    <script type="text/javascript" src="<?php echo Conectar::ruta();?>public/js/vfs_fonts.js"></script>
+
+
+    
+    <script language="javascript" type="text/javascript" src="<?php echo Conectar::ruta();?>public/js/funciones.js"></script>
+    <script language="javascript" type="text/javascript" src="<?php echo Conectar::ruta();?>public/js/funcionesComp.js"></script>
+
+</head>
+
+<body onload="muestraReloj();">
+    <header>
+        <!--  START HEADER -->
+        <div id="header">
+            <!--  START HEAD_WRAP -->
+            <?php include("header.phtml");?>
+            <!--  END HEAD_WRAP -->
+        </div><!--  end div #header -->
+        <!--  END HEADER -->   
+    </header>
+    
+    <section id="contenido">
+        <section id="principal">
+            <article id="Info">
+                <!--  START CONTENT WRAPPER -->
+                <div id="content_wrapper">
+                    <!--  START PRIMARY CONTENT -->
+                    <div id="primary_content">
+                    	<h3>Ingreso de Ordenes de Compra</h3>
+                    	<section id="tab">
+                            <div id='pestaña1'> 
+                                Encabezado
+                            </div>
+                            <div id='pestaña2'> 
+                                Detalle
+                            </div>
+                            
+                            <div id='show1' > <!--Espacio donde se el texto a visualizar-->
+                                <div id="MenuDatos">
+                                    <table>
+                                        <tr>
+                                            <td valign="middle" align="left">
+                                            <div id="btnPrimerComp"><a href="javascript:void(0);" data-accion="ultimo" title="Primer Registro"><img src="<?php echo Conectar::ruta();?>public/images/resultset_first.png" border="0" width="24" height="24" /></a></div>
+                                            </td>
+                                            
+                                            <td valign="middle" align="left">
+                                            <div id="btnAnteriorComp"><a href="javascript:void(0);" data-accion="anterior" title="Anterior"><img src="<?php echo Conectar::ruta();?>public/images/resultset_previous.png" border="0" width="24" height="24" /></a></div>
+                                            </td>
+                                            
+                                            <td valign="middle" align="left">
+                                            <div id="btnSiguienteComp"><a href="javascript:void(0);" data-accion="siguiente" title="Siguiente"><img src="<?php echo Conectar::ruta();?>public/images/resultset_next.png" border="0" width="24" height="24" /></a></div>
+                                            </td>
+                                            
+                                            <td valign="middle" align="left">
+                                            <div id="btnUltimoComp"><a href="javascript:void(0);" data-accion="ultimo" title="Ultimo Registro" ><img src="<?php echo Conectar::ruta();?>public/images/resultset_last.png" border="0" width="24" height="24" /></a></div>
+                                            </td>
+                                            
+                                            <td valign="middle" align="left" width="30">
+                                            <a href="" title=""></a>
+                                            </td>
+                                            
+                                            <td valign="middle" align="left">
+                                            <a href="<?php echo Conectar::ruta();?>comprobante/" onclick="" title="Nuevo Registro"><img src="<?php echo Conectar::ruta();?>public/images/server_add.png" border="0" width="24" height="24" /></a>
+                                            </td>
+                                            
+                                            <td valign="middle" align="left" >
+                                            <div id="btnGuardarOC"><a href="javascript:void(0);" data-accion="guardar" title="Guardar Registro" ><img src="<?php echo Conectar::ruta();?>public/images/save_as.png" border="0" width="24" height="24" /></a></div>
+                                            </td>
+                                            
+                                            <td valign="middle" align="left">
+                                            <div id="btnBorrarComp"><a href="javascript:void(0);" data-accion="eliminar" title="Eliminar Registo" ><img src="<?php echo Conectar::ruta();?>public/images/bin_empty.png" border="0" width="24" height="24" /></a></div>
+                                            </td>
+                                            
+                                            <td valign="middle" align="left" width="20">
+                                            <a href="" title=""></a>
+                                            </td>
+                                            
+                                            <td valign="middle" align="left" >
+                                            <div id="btnImprimirOC"><a target="_blank" href="javascript:void(0);" onclick="" title="Imprimir" ><img src="<?php echo Conectar::ruta();?>public/images/printer.png" border="0" width="24" height="24" /></a></div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                            	</div>
+                                <form action="" method="post" name="form" enctype="multipart/form-data">
+                                    <fieldset>
+                                        <legend>Encabezado del documento</legend>
+                                        <table>
+                                            <tr>
+                                                <td valign="top" align="left">
+                                                    <label for="empresa">Empresa:</label>
+                                                </td>
+                                                <td valign="top" align="left">
+                                                    <input name="empresa" type="text" class="fade" id="empresa" value="<?php if(isset($_SESSION["empresa"])){echo $_SESSION["empresa"];}?>" readonly="readonly" required />
+                                                </td>
+                                                <td valign="top" align="left" width="70">
+                                                     
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <label for="tipo">Solicitante:</label>
+                                                </td>
+                                                <td valign="top" align="left">
+                                                    <select id="solicitante" class="fade" name="solicitante">
+                                                        <option value="0">Seleccione Solicitante</option>
+                                                        <?php
+                                                          $form="solicitante";
+                                                          include("controller/formularioController.php");
+                                                          for($i=0;$i<sizeof($datos);$i++)
+                                                          {
+                                                        ?>
+                                                        <option value="<?php echo $datos[$i]["id_sol"];?>" title="<?php echo $datos[$i]["solicitante"];?>"><?php echo $datos[$i]["solicitante"];?></option>
+                                       
+                                                        <?php
+                                                          }
+                                                        ?>
+                                                    </select>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td valign="top" align="left">
+                                                    <label for="nrooc">Folio OC:</label>
+                                                </td>
+                                                <td valign="top" align="left">
+                                                    <input name="nrooc" type="text" class="fade" id="nrooc" value="" onblur="buscarEncOC()" onkeypress="return acceptNum(event);" required/>
+                                                 </td>
+                                                 <td valign="top" align="left">
+                                                     <div id="btnMaestroOC"><a href="javascript:void(0);" data-accion="" title="Buscar Registro" ><img src="<?php echo Conectar::ruta();?>public/images/search_button_32.png" border="0" width="24" height="24" /></a></div>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <label for="lugarentrega">Lugar de Entrega:</label>
+                                                </td>
+                                                <td valign="top" align="left">
+                                                    <select id="lugarentrega" class="fade" name="lugarentrega" width="24">
+                                                        <option value="0">Seleccione Lugar</option>
+                                                        <?php
+                                                          $form="lugarentrega";
+                                                          include("controller/formularioController.php");
+                                                          for($i=0;$i<sizeof($datos);$i++)
+                                                          {
+                                                        ?>
+                                                        <option value="<?php echo $datos[$i]["id_entr"];?>" title="<?php echo $datos[$i]["direccion"];?>"><?php echo $datos[$i]["direccion"];?></option>
+                                       
+                                                        <?php
+                                                          }
+                                                        ?>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td valign="top" align="left">
+                                                    <label for="fecha">Fecha:</label>
+                                                </td>
+                                                <td valign="top" align="left">
+                                                    <input name="fecha" type="date" class="fade" id="fecha" value="" readonly="readonly" required />
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                     
+                                                </td>
+        
+                                                <td valign="top" align="left">
+                                                    <label for="entrega">Entrega:</label>
+                                                </td>
+                                                <td valign="top" align="left">
+                                                    <input name="entrega" type="text" class="fade" id="entrega" value="" required />
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td valign="top" align="left">
+                                                    <label for="estado">Estado:</label>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <select id="estado" class="fade" name="estado">
+                                                        <option value="0">Estado</option>
+                                                        <?php
+                                                          $form="estado";
+                                                          include("controller/formularioController.php");
+                                                          for($i=0;$i<sizeof($datos);$i++)
+                                                          {
+                                                        ?>
+                                                        <option value="<?php echo $datos[$i]["id_estado"];?>" title="<?php echo $datos[$i]["estado"];?>"><?php echo $datos[$i]["estado"];?></option>
+                                       
+                                                        <?php
+                                                          }
+                                                        ?>
+                                                    </select>
+                                                </td>
+
+                                                <td align="center">
+                                                     
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <label for="condpago">Condicion de pago:</label>
+                                                </td>
+                                                
+                                                <td valign="top" align="left">
+                                                    <select id="condpago" class="fade" name="condpago">
+                                                        <option value="0">Seleccione Condicion</option>
+                                                        <?php
+                                                          $form="condpago";
+                                                          include("controller/formularioController.php");
+                                                          for($i=0;$i<sizeof($datos);$i++)
+                                                          {
+                                                        ?>
+                                                        <option value="<?php echo $datos[$i]["id_cp"];?>" title="<?php echo $datos[$i]["condpago"];?>"><?php echo $datos[$i]["condpago"];?></option>
+                                       
+                                                        <?php
+                                                          }
+                                                        ?>
+                                                    </select>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td valign="top" align="left">
+                                                    <label for="cotizacion">Cotizacion:</label>
+                                                </td>
+                                                <td valign="top" align="left">
+                                                    <input name="cotizacion" type="text" class="fade" id="cotizacion" value="" required />
+                                                </td>
+
+                                                <td align="center">
+                                                     
+                                                </td>
+
+
+                                                <td valign="top" align="left">
+                                                    <label for="porcentpago">Porcentaje Pago:</label>
+                                                </td>
+                                                <td valign="top" align="left">
+                                                    <input name="porcentpago" type="text" class="fade" id="porcentpago" value="" required />
+                                                </td>
+                                            
+                                            </tr>
+
+                                            <tr>
+                                                <td valign="top" align="left">
+                                                    <label for="rutaux">Rut Proveedor:</label>
+                                                </td>
+                                                <td valign="top" align="left">
+                                                    <input name="rutaux" type="text" class="fade" id="rutaux" value="" onblur="buscarEncAux()" onkeypress="return acceptNum(event);" required/>
+                                                 </td>
+                                                 <td valign="top" align="left">
+                                                     <div id="btnMaestroAux"><a href="javascript:void(0);" data-accion="" title="Buscar Registro" ><img src="<?php echo Conectar::ruta();?>public/images/search_button_32.png" border="0" width="24" height="24" /></a></div>
+                                                     
+                                                </td>
+
+                                            
+                                                <td valign="top" align="left">
+                                                    <label for="ctacte">Cuenta Corriente:</label>
+                                                </td>
+                                                <td valign="top" align="left">
+                                                    <input name="ctacte" type="text" class="fade" id="ctacte" value="" readonly="readonly" required />
+                                                </td>
+                                            
+                                            </tr>
+
+                                            <tr>
+                                                <td valign="top" align="left">
+                                                    <label for="nombreaux">Razon Social:</label>
+                                                </td>
+                                                <td valign="top" align="left">
+                                                    <input name="nombreaux" type="text" class="fade" id="nombreaux" value="" readonly="readonly" required />
+                                                </td>
+
+                                                <td align="center">
+                                                     
+                                                </td>
+
+
+                                                <td valign="top" align="left">
+                                                    <label for="banco">Banco:</label>
+                                                </td>
+                                                <td valign="top" align="left">
+                                                    <input name="banco" type="text" class="fade" id="banco" value="" readonly="readonly" required />
+                                                </td>
+                                            
+                                            </tr>
+
+                                            <tr>
+                                                <td valign="top" align="left">
+                                                    <label for="contacto">Atte. Sr(a):</label>
+                                                </td>
+                                                <td valign="top" align="left">
+                                                    <input name="contacto" type="text" class="fade" id="contacto" value="" readonly="readonly" required />
+                                                </td>
+
+                                                <td align="center">
+                                                     
+                                                </td>
+
+
+                                                <td valign="top" align="left">
+                                                    <label for="presupuesto">Presupuesto:</label>
+                                                </td>
+                                                <td valign="top" align="left">
+                                                    <input name="presupuesto" type="text" class="fade" id="presupuesto" value="" required />
+                                                </td>
+                                            
+                                            </tr>
+
+                                            <tr>
+                                                <td valign="top" align="left">
+                                                    <label for="celular">Celular:</label>
+                                                </td>
+                                                <td valign="top" align="left">
+                                                    <input name="celular" type="text" class="fade" id="celular" value="" readonly="readonly" required />
+                                                </td>
+
+                                                <td align="center">
+                                                     
+                                                </td>
+
+
+                                                <td valign="top" align="left">
+                                                    <label for="tipocambio">Tipo Cambio:</label>
+                                                </td>
+                                                <td valign="top" align="left">
+                                                    <input name="tipocambio" type="text" class="fade" id="tipocambio" value="1" onkeypress="return acceptNum(event);" required />
+                                                </td>
+                                            
+                                            </tr>
+
+                                            <tr>
+                                                <td valign="top" align="left">
+                                                    <label for="direccion">Direccion:</label>
+                                                </td>
+                                                <td valign="top" align="left">
+                                                    <input name="direccion" type="text" class="fade" id="direccion" value="" readonly="readonly" required />
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                     
+                                                </td>
+
+                                           
+                                                <td valign="top" align="left">
+                                                    <label for="cuenta">Cuenta:</label>
+                                                </td>
+                                                <td valign="top" align="left">
+                                                    <input name="cuenta" type="text" class="fade" id="cuenta" value="" onblur="buscarEncCuenta()"  required />
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                     <div id="btnMaestroCuenta"><a href="javascript:void(0);" data-accion="" title="Buscar Registro" ><img src="<?php echo Conectar::ruta();?>public/images/search_button_32.png" border="0" width="24" height="24" /></a></div>
+                                                     
+                                                </td>
+                                           
+                                            </tr>
+
+                                            <tr>
+                                                <td valign="top" align="left">
+                                                    <label for="comuna">Comuna:</label>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <input name="comuna" type="text" class="fade" id="comuna" value="" readonly="readonly" required />
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                     
+                                                </td>
+
+
+                                                <td valign="top" align="left">
+                                                    <label for="centrocosto">Centro de Costo:</label>
+                                                </td>
+                                                <td valign="top" align="left">
+                                                    <input name="centrocosto" type="text" class="fade" id="centrocosto" value="" onblur="buscarEncCentro()" required />
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                     <div id="btnMaestroCentro"><a href="javascript:void(0);" data-accion="" title="Buscar Registro" ><img src="<?php echo Conectar::ruta();?>public/images/search_button_32.png" border="0" width="24" height="24" /></a></div>
+                                                     
+                                                </td>
+                                            
+                                            </tr>
+
+                                            <tr>
+                                                <td valign="top" align="left">
+                                                    <label for="telefono">Telefono:</label>
+                                                </td>
+                                                <td valign="top" align="left">
+                                                    <input name="telefono" type="text" class="fade" id="telefono" value="" readonly="readonly" required />
+                                                </td>
+
+                                                <td align="center">
+                                                     
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <label for="mail">Mail:</label>
+                                                </td>
+                                                <td valign="top" align="left">
+                                                    <input name="mail" type="text" class="fade" id="mail" value="" readonly="readonly" required />
+                                                </td>
+                                            
+                                            </tr>
+
+                                            <tr>
+                                                <td valign="top" align="left" ROWSPAN=3 >
+                                                    <label for="observacion">Observacion:</label>
+                                                </td>
+                                                <td valign="top" align="left" ROWSPAN=3 >
+                                                    <textarea  name="observacion" class="fade" id="observacion" value=""  cols="31" rows="5"></textarea>
+                                                </td>
+
+                                                <td align="center" ROWSPAN=3 >
+                                                     
+                                                </td>
+
+                                                <td valign="top" align="left" >
+                                                  <font color="red"><big> <b><label for="neto">Neto:</label> </b></big></font>
+                                                </td>
+
+                                                <td valign="top" align="left" >
+                                                    <input name="neto" type="text" class="fade" id="neto" value="0" readonly="readonly" dir="rtl" required />
+                                                </td>
+                                            
+                                            </tr>
+
+                                            <tr>
+                                                <td valign="top" align="left" >
+                                                    <font color="red"><big> <b><label for="iva">IVA:</label></b></big></font>
+                                                </td>
+
+                                                <td valign="top" align="left" >
+                                                    <input name="iva" type="text" class="fade" id="iva" value="0" readonly="readonly" dir="rtl" required />
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td valign="top" align="left" >
+                                                    <font color="red"><big> <b><label for="total">Total:</label></b></big></font>
+                                                </td>
+
+                                                <td valign="top" align="left" >
+                                                    <input name="total" type="text" class="fade" id="total" value="0" readonly="readonly" dir="rtl" required />
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td valign="top" align="left">
+                                                    <input type="hidden" id="reg" name="reg" value="0" />
+                                                </td>
+                                            </tr>
+                                            
+                                        </table>
+                                    </fieldset>
+                                </form>
+                                
+                                	
+                            </div>
+                            
+                            <div id='show2' > <!--Espacio donde se el texto a visualizar-->
+                                <div id="MenuDatos">
+                                    <table>
+                                        <tr>
+                                            <td valign="middle" align="left" >
+                                                <div id="btnNuevoRegOCDet"><a href="javascript:void(0);" data-accion="nuevalincompdet" title="Nuevo Registro" ><img src="<?php echo Conectar::ruta();?>public/images/server_add.png" border="0" width="24" height="24" /></a></div>
+                                            </td>
+
+                                            <td valign="middle" align="left" width="20">
+                                                <a href="" title=""></a>
+                                            </td>
+                                            <td valign="middle" align="left">
+                                                <div id="btnBorrarOCDet"><a href="javascript:void(0);" data-accion="eliminarocdet" title="Eliminar Registo" ><img src="<?php echo Conectar::ruta();?>public/images/bin_empty.png" border="0" width="24" height="24" /></a></div>
+                                            </td>
+
+                                        </tr>
+                                    </table>
+                                </div>
+                                <form action="" method="post" id="formdat" name="formdat" enctype="multipart/form-data">
+                                    <fieldset>
+                                        <legend>Detalle del documento</legend>
+                                        <table>
+                                            <tr>
+                                                <td valign="top" align="left" width="30">
+                                                    <label for="iddetoc">Id</label>
+                                                </td>
+
+                                                <td valign="top" align="left" width="60" >
+                                                    <label for="tipoart">Tipo</label>
+                                                </td>                                                
+                                                <td valign="top" align="left">
+                                                    <div id="btnMaestroArt"><a href="javascript:void(0);" data-accion="" title="Buscar Registro" ></a><label for="idart">Codigo</label></div>
+                                                </td>
+                                                <td valign="top" align="" width="290" >
+                                                    <label for="detalle">Detalle</label>
+                                                </td>
+                                                <td valign="top" align="left">
+                                                    <label for="cantidad">Cantidad</label>
+                                                </td>
+                                                <td valign="top" align="left">
+                                                    <label for="um">UM</label>
+                                                </td>
+                                                <td valign="top" align="left">
+                                                    <label for="precio">Precio</label>
+                                                </td>
+                                                <td valign="top" align="left">
+                                                    <label for="netodet">Neto</label>
+                                                </td>
+                                                
+                                            </tr>
+
+                                            <tr>
+                                                <td valign="top" align="left" width="30">
+                                                    <input name="iddetoc" type="text" class="fade" id="iddetoc" value="" onblur="" dir="rtl" readonly="readonly" required/>
+                                                </td>
+
+                                                <td valign="center" align="left" width="60">
+                                                    <input name="tipoart" type="checkbox" checked="checked" id="tipoart"/> Exist.
+                                                </td>
+
+                                                <td valign="top" align="left" width="20">
+                                                    <input name="idart" type="text" class="fade" id="idart" value="" onblur="buscarartdet()" onkeypress="return acceptNum(event);" required/>
+                                                </td>
+
+                                                <td valign="top" align="left" width="290">
+                                                    <input name="detalle" type="text" class="fade" id="detalle" value="" onblur=""   readonly="readonly" required/>
+                                                </td>
+
+                                                <td valign="top" align="left" width="90">
+                                                    <input name="cantidad" type="text" class="fade" id="cantidad" value="" onblur="CalculaNeto()" onkeypress="return NumCheck(event,this);" required/>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <select id="um" class="fade" name="um" disabled="disabled">
+                                                        <option value="0">UM</option>
+                                                        <?php
+                                                          $form="um";
+                                                          include("controller/formularioController.php");
+                                                          for($i=0;$i<sizeof($datos);$i++)
+                                                          {
+                                                        ?>
+                                                        <option value="<?php echo $datos[$i]["id_um"];?>" title="<?php echo $datos[$i]["um"];?>"><?php echo $datos[$i]["um"];?></option>
+                                       
+                                                        <?php
+                                                          }
+                                                        ?>
+                                                    </select>
+                                                </td>
+
+                                                <td valign="top" align="left" width="90">
+                                                    <input name="precio" type="text" class="fade" id="precio" value="" onblur="CalculaNeto()"  onkeypress="return NumCheck(event,this);" required/>
+                                                </td>
+
+                                                <td valign="top" align="left" width="110">
+                                                    <input name="netodet" type="text" class="fade" id="netodet" value="" onblur="" dir="rtl" onkeypress="return soloNumeros(event);" readonly="readonly" required/>
+                                                </td>
+
+                                                <td valign="middle" align="left" >
+                                                    <div id="btnGuardarOCDet"><a href="javascript:void(0);" data-accion="guardarocdet" title="Guardar Registro" ><img src="<?php echo Conectar::ruta();?>public/images/save_as.png" border="0" width="24" height="24" /></a></div>
+                                                </td>
+                                                
+                                                
+                                            </tr>       
+                                        </table>
+                                    </fieldset>
+                                </form>
+
+                                <div id="TablaDatos">
+                                    <table id="tablaDet" class="display" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>Tipo</th>
+                                                <th>Codigo</th>
+                                                <th>Detalle</th>
+                                                <th>Cantidad</th>
+                                                <th>UM</th>
+                                                <th>Desc</th>
+                                                <th>Precio</th>
+                                                <th>Neto</th>
+                                            </tr>
+                                        </thead>
+                                         
+                                        <tbody id="listadetoc">
+                                            
+                                        </tbody>
+                                        
+                                        <tfoot>
+                                        </tfoot>
+                                        
+                                    </table>  
+                            </div>
+                    	</section>               
+                        <div id="dialogo-borrarComp" title="Eliminar Registro" style="display:none;">
+                                <p>El registro se eliminará permanentemente de la Base de Datos. ¿Desea continuar?</p>
+                        </div>
+                        <div id="dialogo-nuevoAux" title="Nuevo Auxiliar" style="display:none;">
+                                <p>El auxiliar ingresado no existe en la Base de Datos. ¿Desea crearlo?</p>
+                        </div>
+                        <div id="dialogo-folioOC" title="Sin folio OC asignado" style="display:none;">
+                                <p>No cuenta con folios para confeccionar nuevas Ordenes de Compra. Contactese con el administrador del sistema.</p>
+                        </div>
+                        <div id="dialogo-maestroOC" title="Maestro de Registros" style="display:none;">
+                                <table id="tableOC" class="display" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Nro.OC</th>
+                                            <th>Proveedor</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="listaencoc">
+                                        
+                                    </tbody>
+                                    
+                                    <tfoot>
+                                    </tfoot>
+                                    
+                                </table>  
+                        </div>
+                        <div id="dialogo-maestroAux" title="Maestro de Registros" style="display:none;">
+                                <table id="tableAux" class="display" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Rut</th>
+                                            <th>Proveedor</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="listaencaux">
+                                        
+                                    </tbody>
+                                    
+                                    <tfoot>
+                                    </tfoot>
+                                    
+                                </table>  
+                        </div>
+                        <div id="dialogo-maestroCuenta" title="Maestro de Registros" style="display:none;">
+                                <table id="tableCuenta" class="display" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Codigo</th>
+                                            <th>Nombre</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="listaenccuenta">
+                                        
+                                    </tbody>
+                                    
+                                    <tfoot>
+                                    </tfoot>
+                                    
+                                </table>  
+                        </div>
+                        <div id="dialogo-maestroCentro" title="Maestro de Registros" style="display:none;">
+                                <table id="tableCentro" class="display" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Codigo</th>
+                                            <th>Nombre</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="listaenccentro">
+                                        
+                                    </tbody>
+                                    
+                                    <tfoot>
+                                    </tfoot>
+                                    
+                                </table>  
+                        </div>
+                        <div id="dialogo-maestroArt" title="Maestro de Registros" style="display:none;">
+                                <table id="tableArt" class="display" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Codigo</th>
+                                            <th>Nombre</th>
+                                            <th>UM</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="listaarticulos">
+                                        
+                                    </tbody>
+                                    
+                                    <tfoot>
+                                    </tfoot>
+                                    
+                                </table>  
+                        </div>
+
+                    </div>
+                    <!--  END PRIMARY CONTENT -->   
+                      
+                </div><!--  end div #content_wrapper -->
+                <!--  END CONTENT_WRAPPER -->
+        	</article>
+        </section>
+        
+        <aside>
+        	<!--  START SIDEBAR -->
+            <?php include("sidebar.phtml");?>
+            <!--  end div #sidebar -->
+            <!--  END SIDEBAR -->
+        
+        </aside>
+        
+        
+    </section>
+    
+    <footer>
+        <!--  START FOOTER -->
+        <div id="footer">
+            <p>
+            <?php include("footer.phtml");?>
+            </p>
+        </div>
+        <!--  END CEND -->
+    </footer>
+</body>
+</html>
+

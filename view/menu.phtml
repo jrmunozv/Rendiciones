@@ -1,0 +1,122 @@
+<nav>
+	<?php require_once('controller/menuController.php');?>
+    <ul class="nav">
+        	<li><a href="<?php echo Conexion::ruta();?>" title="Home">Home</a></li>
+            
+            <li><a href="">Maestros</a>
+            	<ul>
+                	<?php if($menu['mnuCategorias']==1){?>
+                    <li><a href="<?php echo Conexion::ruta();?>categorias/" title="Categorías">Categorías</a></li>
+                    <?php }else{?>
+                    <li><a href="" title="Categorías">Categorías</a></li>
+                    <?php }?>
+                    
+                    <?php if($menu['mnuArticulos']==1){?>
+                    <li><a href="<?php echo Conexion::ruta();?>articulo/" title="Articulos">Artículos</a></li>
+                    <?php }else{?>
+                    <li><a href="" title="Artículos">Artículos</a></li>
+                    <?php }?>
+                    
+                    <?php if($menu['mnuAuxiliares']==1){?>
+                    <li><a href="<?php echo Conexion::ruta();?>auxiliar/" title="Auxiliares">Auxiliares</a></li>
+                    <?php }else{?>
+                    <li><a href="" title="Auxiliares">Auxiliares</a></li>
+                    <?php }?>
+                    
+                    <?php if($menu['mnuLugarEntrega']==1){?>
+                    <li><a href="<?php echo Conexion::ruta();?>lugarentrega/" title="Lugares de Entrega">Lugares de Entrega</a></li>
+                    <?php }else{?>
+                    <li><a href="" title="Lugares de Entrega">Lugares de Entrega</a></li>
+                    <?php }?>
+
+                </ul>
+            </li>
+            
+            <li><a href="">Datos</a>
+            	<ul>
+                	<?php if($menu['mnuRendiciones']==1){?>
+                    <li><a href="<?php echo Conexion::ruta();?>rendiciones/" title="Rendiciones">Rendiciones</a></li>
+                    <?php }else{?>
+                    <li><a href="" title="Rendiciones">Rendiciones</a></li>
+                    <?php }?>
+
+                    <?php if($menu['mnuComprobantes']==1){?>
+                    <li><a href="<?php echo Conexion::ruta();?>comprobante/" title="Ordenes de Compra">Orden de Compra</a></li>
+                    <?php }else{?>
+                    <li><a href="" title="Ordenes de Compra">Orden de Compra</a></li>
+                    <?php }?>
+                </ul>
+               
+            </li>
+
+            <li><a href="">Procesos</a>
+                <ul>
+                    <li><a href="">Operaciones</a>
+                        <ul>
+                            <?php if($menu['mnuAprobar']==1){?>
+                            <li><a href="<?php echo Conexion::ruta();?>aprobacion/" title="Aprobar">Aprobar</a></li>
+                            <?php }else{?>
+                            <li><a href="" title="Aprobar">Aprobar</a></li>
+                            <?php }?>
+                        </ul>
+                    </li>
+
+                    <li><a href="">Administracion</a>
+                        <ul>
+                            <?php if($menu['mnuTesoreria']==1){?>
+                            <li><a href="<?php echo Conexion::ruta();?>tesoreria/" title="Tesoreria">Tesoreria</a></li>
+                            <?php }else{?>
+                            <li><a href="" title="Tesoreria">Tesoreria</a></li>
+                            <?php }?>
+
+                            <?php if($menu['mnuContabilidad']==1){?>
+                            <li><a href="<?php echo Conexion::ruta();?>contabilidad/" title="Contabilidad">Contabilidad</a></li>
+                            <?php }else{?>
+                            <li><a href="" title="Contabilidad">Contabilidad</a></li>
+                            <?php }?>
+                        </ul>
+                    </li>
+                </ul>
+            
+            </li>
+            
+            <li><a href="">Informes</a>
+            	<ul>
+                	<?php if($menu['mnuStock']==1){?>
+                    <li><a href="<?php echo Conexion::ruta();?>stock/" title="Stock">Stock</a></li>
+                    <?php }else{?>
+                    <li><a href="" title="Stock">Stock</a></li>
+                    <?php }?>
+
+                    <?php if($menu['mnuRegistroKardex']==1){?>
+                    <li><a href="<?php echo Conexion::ruta();?>registrokardex/" title="Registros">Registros</a></li>
+                    <?php }else{?>
+                    <li><a href="" title="Registros">Registros</a></li>
+                    <?php }?>
+
+                	<li><a href="">Transferir a Excel</a></li>
+                </ul>
+            
+            </li>
+            
+            <li><a href="" title="Seguridad">Seguridad</a>
+            	<ul>
+                    <?php if($menu['mnuPeriodo']==1){?>
+                    <li><a href="<?php echo Conexion::ruta();?>periodo/" title="Abrir-cerrar mes">Abrir-Cerrar Mes</a></li>
+                    <?php }else{?>
+                    <li><a href="" title="Abrir-cerrar mes">Abrir-Cerrar Mes</a></li>
+                    <?php }?>
+
+                    <?php if($menu['mnuUsuarios']==1){?>
+                    <li><a href="<?php echo Conexion::ruta();?>usuarios/" title="Usuarios">Usuarios</a></li>
+                    <?php }else{?>
+                    <li><a href="" title="Usuarios">Usuarios</a></li>
+                    <?php }?>
+
+                    <li><a href="">Auditoria</a></li>
+                </ul>
+            </li>
+     
+        </ul>
+    	<br />
+</nav>

@@ -1,0 +1,704 @@
+<!DOCTYPE html >
+<html lang= "es" >
+<head>
+	<title>..:: Rendiciones ::..</title>
+    <meta charset = "utf-8" />
+    <meta name="description" content="Bienvenido a mi sitio" />
+    <meta name = "viewport" content ="width= devide-with, inicial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href= "<?php echo Conexion::ruta();?>public/images/favicon.ico" />
+    <link rel="author" type="text/plain" href= "humans.txt" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href= "sitemap.xml" />
+    
+    <link href="<?php echo Conexion::ruta();?>public/css/smoothness/jquery-ui-1.8.23.custom.css" rel="stylesheet" media="screen">
+ 	
+    <!--
+    <link rel="stylesheet" href= "<?php //echo Conexion::ruta();?>public/css/datatables.css" />
+    <link rel="stylesheet" href= "<?php //echo Conexion::ruta();?>public/css/TableTools.css" />
+    -->
+
+    <link rel="stylesheet" href= "<?php echo Conexion::ruta();?>public/css/buttons.dataTables.min.css" />
+    <link rel="stylesheet" href= "<?php echo Conexion::ruta();?>public/css/jquery.dataTables.min.css" />
+
+    
+    <link rel="stylesheet" href= "<?php echo Conexion::ruta();?>public/css/estilos.css" />
+    <link rel="stylesheet" href= "<?php echo Conexion::ruta();?>public/css/menu.css" />
+
+
+    
+  
+    <script type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/jquery/jquery.1.8.1.js"></script>
+    <script type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/jquery_ui/jquery-ui-1.8.23.custom.min.js"></script>
+    <script type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/datatables.js"></script>
+    
+    <!--<script type="text/javascript" src="<?php //echo Conexion::ruta();?>public/js/TableTools.js"></script> -->
+    
+    <script type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/pdfmake.min.js"></script>
+    <script type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/buttons.print.min.js"></script>
+    <script type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/jszip.min.js"></script>
+    <script type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/vfs_fonts.js"></script>
+
+
+    
+    <script language="javascript" type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/funciones.js"></script>
+    <script language="javascript" type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/funcionesRend.js"></script>
+
+</head>
+
+<body onload="muestraReloj();">
+    <header>
+        <!--  START HEADER -->
+        <div id="header">
+            <!--  START HEAD_WRAP -->
+            <?php include("header.phtml");?>
+            <!--  END HEAD_WRAP -->
+        </div><!--  end div #header -->
+        <!--  END HEADER -->   
+    </header>
+    
+    <section id="contenido">
+        <section id="principal">
+            <article id="Info">
+                <!--  START CONTENT WRAPPER -->
+                <div id="content_wrapper">
+                    <!--  START PRIMARY CONTENT -->
+                    <div id="primary_content">
+                    	<h3>Ingreso de Rendiciones</h3>
+                    	<section id="tab">
+                            <div id='pestaña1'> 
+                                Encabezado
+                            </div>
+                            <div id='pestaña2'> 
+                                Detalle
+                            </div>
+                            <div id='pestaña3'> 
+                                Archivos
+                            </div>
+                            
+                            <div id='show1' > <!--Espacio donde se el texto a visualizar-->
+                                <div id="MenuDatos">
+                                    <table>
+                                        <tr>
+                                            <td valign="middle" align="left">
+                                            <div id="btnPrimerComp"><a href="javascript:void(0);" data-accion="ultimo" title="Primer Registro"><img src="<?php echo Conexion::ruta();?>public/images/resultset_first.png" border="0" width="24" height="24" /></a></div>
+                                            </td>
+                                            
+                                            <td valign="middle" align="left">
+                                            <div id="btnAnteriorComp"><a href="javascript:void(0);" data-accion="anterior" title="Anterior"><img src="<?php echo Conexion::ruta();?>public/images/resultset_previous.png" border="0" width="24" height="24" /></a></div>
+                                            </td>
+                                            
+                                            <td valign="middle" align="left">
+                                            <div id="btnSiguienteComp"><a href="javascript:void(0);" data-accion="siguiente" title="Siguiente"><img src="<?php echo Conexion::ruta();?>public/images/resultset_next.png" border="0" width="24" height="24" /></a></div>
+                                            </td>
+                                            
+                                            <td valign="middle" align="left">
+                                            <div id="btnUltimoComp"><a href="javascript:void(0);" data-accion="ultimo" title="Ultimo Registro" ><img src="<?php echo Conexion::ruta();?>public/images/resultset_last.png" border="0" width="24" height="24" /></a></div>
+                                            </td>
+                                            
+                                            <td valign="middle" align="left" width="30">
+                                            <a href="" title=""></a>
+                                            </td>
+                                            
+                                            <td valign="middle" align="left">
+                                            <a href="<?php echo Conexion::ruta();?>rendiciones/" onclick="" title="Nuevo Registro"><img src="<?php echo Conexion::ruta();?>public/images/server_add.png" border="0" width="24" height="24" /></a>
+                                            </td>
+                                            
+                                            <td valign="middle" align="left" >
+                                            <div id="btnGuardarRend"><a href="javascript:void(0);" data-accion="guardar" title="Guardar Registro" ><img src="<?php echo Conexion::ruta();?>public/images/save_as.png" border="0" width="24" height="24" /></a></div>
+                                            </td>
+                                            
+                                            <td valign="middle" align="left">
+                                            <div id="btnBorrarRend"><a href="javascript:void(0);" data-accion="eliminar" title="Eliminar Registo" ><img src="<?php echo Conexion::ruta();?>public/images/bin_empty.png" border="0" width="24" height="24" /></a></div>
+                                            </td>
+                                            
+                                            <td valign="middle" align="left" width="20">
+                                            <a href="" title=""></a>
+                                            </td>
+                                            
+                                            <td valign="middle" align="left" >
+                                            <div id="btnImprimirRend"><a target="" href="javascript:void(0);" onclick="" title="Imprimir" ><img src="<?php echo Conexion::ruta();?>public/images/printer.png" border="0" width="24" height="24" /></a></div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                            	</div>
+                                <form action="" method="post" name="form" enctype="multipart/form-data">
+                                    <fieldset>
+                                        <legend>Encabezado del documento</legend>
+                                        <table>
+                                            <tr>
+                                                <td valign="top" align="left">
+                                                    <div id="btnMaestroRend"><a href="javascript:void(0);" data-accion="" title="Buscar Registro" ><span class="highlight">Folio:</span></a></div>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <input name="folio" type="text" class="fade" id="folio" value="" onblur="buscarEncRend()" onkeypress="return acceptNum(event);" dir="rtl" required/>
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td valign="top" align="left">
+                                                    <label for="fecha">Fecha:</label>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <input name="fecha" type="date" class="fade" id="fecha" value="" readonly="readonly" required />
+                                                </td>
+
+                                                <td valign="top" align="left" width="70">
+                                                     
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <label for="archivo">Subir archivo:</label>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <select id="archivo" class="fade" name="archivo">
+                                                        <option value="0">Seleccione opcion</option>
+                                                        <option value="1">Subir archivo individual</option>
+                                                        <option value="2" selected>Subir archivo por lote</option>
+                                                    </select>
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td valign="top" align="left">
+                                                    <label for="empresa">Empresa:</label>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <input name="empresa" type="text" class="fade" id="empresa" value="<?php if(isset($_SESSION["empresa"])){echo $_SESSION["empresa"];}?>" readonly="readonly" required />
+                                                </td>
+
+                                                <td valign="top" align="left" width="70">
+                                                     
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <label for="estado">Estado:</label>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <select id="estado" class="fade" name="estado">
+                                                        <option value="0">Seleccione Estado</option>
+                                                        <?php
+                                                          $form="estado";
+                                                          include("controller/formularioController.php");
+                                                          for($i=0;$i<sizeof($datos);$i++)
+                                                          {
+                                                        ?>
+                                                        <option value="<?php echo $datos[$i]["id_estado"];?>" title="<?php echo $datos[$i]["estado"];?>"><?php echo $datos[$i]["estado"];?></option>
+                                       
+                                                        <?php
+                                                          }
+                                                        ?>
+                                                    </select>
+                                                </td>
+     
+                                            </tr>
+
+                                            <tr>
+                                                <td valign="top" align="left">
+                                                    <label for="usuariosel">Usuario:</label>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <input name="usuariosel" type="text" class="fade" id="usuariosel" value="<?php if(isset($_SESSION["usuariosel"])){echo $_SESSION["usuariosel"];}?>" readonly="readonly" required />
+                                                </td>
+
+                                                <td valign="top" align="left" width="70">
+                                                     
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <label for="tipofondo">Tipo de fondo:</label>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <select id="tipofondo" class="fade" name="tipofondo">
+                                                        <option value="0">Seleccione Tipo Fondo</option>
+                                                        <?php
+                                                          $form="tipofondo";
+                                                          include("controller/formularioController.php");
+                                                          for($i=0;$i<sizeof($datos);$i++)
+                                                          {
+                                                        ?>
+                                                        <option value="<?php echo $datos[$i]["id_tipofondo"];?>" title="<?php echo $datos[$i]["nombrefondo"];?>"><?php echo $datos[$i]["nombrefondo"];?></option>
+                                       
+                                                        <?php
+                                                          }
+                                                        ?>
+                                                    </select>
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td valign="top" align="left">
+                                                    <label for="rutusuario">Rut usuario:</label>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <input name="rutusuario" type="text" class="fade" id="rutusuario" value="" readonly="readonly" required/>
+                                                </td>
+
+                                                <td valign="top" align="left" width="70">
+                                                     
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <label for="fondoasign">Fondo asignado:</label>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <input name="fondoasign" type="text" class="fade" id="fondoasign" value="" dir="rtl" onfocus="QuitarPuntos();" onblur="PonerPuntos()" onkeypress="return acceptNum(event);" required />
+                                                </td>
+                                                
+                                            </tr>
+
+                                            <tr>
+                                                <td valign="top" align="left">
+                                                    <label for="banco">Banco:</label>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <input name="banco" type="text" class="fade" id="banco" value="" readonly="readonly" required />
+                                                </td>
+
+                                                <td align="center" ROWSPAN=3 >
+                                                     
+                                                </td>
+
+                                                <td valign="top" align="left" ROWSPAN=3 >
+                                                    <label for="observacion">Observacion:</label>
+                                                </td>
+
+                                                <td valign="top" align="left" ROWSPAN=3 >
+                                                    <textarea  name="observacion" class="fade" id="observacion" value=""  cols="31" rows="5"></textarea>
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td valign="top" align="left">
+                                                    <label for="tipocuenta">Tipo cuenta:</label>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <input name="tipocuenta" type="text" class="fade" id="tipocuenta" value="" readonly="readonly" required />
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td valign="top" align="left">
+                                                    <label for="nrocuenta">Nro. cuenta:</label>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <input name="nrocuenta" type="text" class="fade" id="nrocuenta" value="" readonly="readonly" required />
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td valign="top" align="left">
+                                                    <input type="hidden" id="reg" name="reg" value="0" />
+                                                    <input type="hidden" id="usuariosel_id" name="usuariosel_id" value="<?php if(isset($_SESSION["id_usuariosel"])){echo $_SESSION["id_usuariosel"];}?>" />
+                                                </td>
+                                            </tr>     
+                                        </table>
+                                    </fieldset>
+                                </form>
+                                
+                                	
+                            </div>
+                            
+                            <div id='show2' > <!--Espacio donde se el texto a visualizar-->
+                                <div id="MenuDatos">
+                                    <table>
+                                        <tr>
+                                            <td valign="middle" align="left" >
+                                                <div id="btnNuevoRegRendDet"><a href="javascript:void(0);" data-accion="nuevalincompdet" title="Nuevo Registro" ><img src="<?php echo Conexion::ruta();?>public/images/server_add.png" border="0" width="24" height="24" /></a></div>
+                                            </td>
+
+                                            <td valign="middle" align="left" width="20">
+                                                <a href="" title=""></a>
+                                            </td>
+                                            <td valign="middle" align="left">
+                                                <div id="btnBorrarRendDet"><a href="javascript:void(0);" data-accion="eliminarrenddet" title="Eliminar Registo" ><img src="<?php echo Conexion::ruta();?>public/images/bin_empty.png" border="0" width="24" height="24" /></a></div>
+                                            </td>
+
+                                        </tr>
+                                    </table>
+                                </div>
+                                <form action="" method="post" id="formdat" name="formdat" enctype="multipart/form-data">
+                                    <fieldset>
+                                        <legend>Detalle del documento</legend>
+                                        <table>
+                                            <tr>
+                                                <td valign="top" align="left" width="30">
+                                                    <label for="iddetrend">Id</label>
+                                                </td>
+
+                                                <td valign="top" align="left" width="60">
+                                                    <label for="fechadet">Fecha</label>
+                                                </td>
+
+                                                <td valign="top" align="left" width="80">
+                                                    <div id="btnMaestroAux"><a href="javascript:void(0);" data-accion="" title="Buscar Registro" ><span class="highlight">Rut</span></a></div>                     
+                                                </td>
+
+                                                <td valign="top" align="" width="120">
+                                                    <label for="proveedordet">Proveedor</label>
+                                                </td>
+
+                                                <td valign="top" align="left" width="80">
+                                                    <label for="montodet">Monto</label>
+                                                </td>
+
+                                                <td valign="top" align="left" width="60">
+                                                    <label for="tipodocdetalle">Tipo Doc</label>
+                                                </td>
+
+                                                <td valign="top" align="left" width="50">
+                                                    <label for="nrodocdet">Nro.Doc</label>
+                                                </td>
+
+                                                <td valign="top" align="left" width="100">
+                                                    <label for="conceptodet">Concepto</label>
+                                                </td>
+
+                                                <td valign="top" align="left" width="120">
+                                                    <div id="btnMatriz"><a href="javascript:void(0);" data-accion="" title="Buscar Registro" ><span class="highlight">Matriz</span></a></div>   
+                                                </td>
+
+                                                <td valign="top" align="left" width="30">
+                                                     
+                                                </td>
+                                                
+                                            </tr>
+
+                                            <tr>
+                                                <td valign="top" align="left">
+                                                    <input name="iddetrend" type="text" class="fade" id="iddetrend" value="" onblur="" dir="rtl" readonly="readonly" required/>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <input name="fechadet" type="date" class="fade" id="fechadet" value="" onblur=""  required/>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <input name="rutdet" type="text" class="fade" id="rutdet" value="" onblur="buscarEncAux()" onkeypress="return acceptNum(event);" required/>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <input name="proveedordet" type="text" class="fade" id="proveedordet" value="" onblur="" readonly="readonly" required/>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <input name="montodet" type="text" class="fade" id="montodet" value="" onblur="CalculaNeto();" onkeypress="return NumCheck(event,this);" required/>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <select id="tipodocdetalle" class="fade" name="tipodocdetalle">
+                                                        <option value="0">Tipo Doc</option>
+                                                        <?php
+                                                          $form="tipodocdet";
+                                                          include("controller/formularioController.php");
+                                                          for($i=0;$i<sizeof($datos);$i++)
+                                                          {
+                                                        ?>
+                                                        <option value="<?php echo $datos[$i]["id_tipodoc"];?>" title="<?php echo $datos[$i]["tipodoc"];?>"><?php echo $datos[$i]["tipodoc"];?></option>
+                                       
+                                                        <?php
+                                                          }
+                                                        ?>
+                                                    </select>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <input name="nrodocdet" type="text" class="fade" id="nrodocdet" value="" onblur=""  onkeypress="return NumCheck(event,this);" required/>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <input name="conceptodet" type="text" class="fade" id="conceptodet" value="" onblur="" onkeypress="" required/>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <input name="matrizdet" type="text" class="fade" id="matrizdet" value="" onblur=""  onkeypress="" readonly="readonly" required/>
+                                                </td>
+
+                                                <td valign="middle" align="left">
+                                                    <div id="btnGuardarRendDet"><a href="javascript:void(0);" data-accion="guardarrenddet" title="Guardar Registro" ><img src="<?php echo Conexion::ruta();?>public/images/save_as.png" border="0" width="24" height="24" /></a></div>
+                                                </td>                                           
+                                            </tr>       
+                                        </table>
+                                    </fieldset>
+                                </form>
+
+                                <div id="TablaDatos">
+                                    <table id="tablaDet" class="display" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>Fecha</th>
+                                                <th>Rut</th>
+                                                <th>Proveedor</th>
+                                                <th>Monto</th>
+                                                <th>Tipo Doc</th>
+                                                <th>Nro Doc</th>
+                                                <th>Concepto</th>
+                                                <th>Matriz</th>
+                                            </tr>
+                                        </thead>
+                                         
+                                        <tbody id="listadetrend">
+                                            
+                                        </tbody>
+                                        
+                                        <tfoot>
+                                        </tfoot>
+                                        
+                                    </table>  
+                                </div>
+                            </div>
+
+                            <div id='show3' > <!--Espacio donde se el texto a visualizar-->
+                                <div id="MenuDatos">
+                                    <table>
+                                        <tr>
+                                            <td valign="middle" align="left" >
+                                                <div id="btnNuevoRegRendArch"><a href="javascript:void(0);" data-accion="nuevalincomparch" title="Nuevo Registro" ><img src="<?php echo Conexion::ruta();?>public/images/server_add.png" border="0" width="24" height="24" /></a></div>
+                                            </td>
+                                            <td valign="middle" align="left" width="20">
+                                                <a href="" title=""></a>
+                                            </td>
+                                            <td valign="middle" align="left">
+                                                <div id="btnBorrarRendArch"><a href="javascript:void(0);" data-accion="eliminarrendarch" title="Eliminar Registo" ><img src="<?php echo Conexion::ruta();?>public/images/bin_empty.png" border="0" width="24" height="24" /></a></div>
+                                            </td>
+                                            <td valign="middle" align="left" width="20">
+                                                <a href="" title=""></a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <form action="" method="post" id="formarch" name="formarch" enctype="multipart/form-data">
+                                    <fieldset>
+                                        <legend>Archivos del documento</legend>
+                                        <table>
+                                            <tr>
+                                                <td valign="top" align="left" width="30">
+                                                    <label for="iddetarch">Id</label>
+                                                </td>
+
+                                                <td valign="top" align="left" width="15">
+                                                     
+                                                </td>
+
+                                                <td valign="top" align="left" width="100">
+                                                    <label for="archivodetarch">Archivo original</label>
+                                                </td>
+
+                                                <td valign="top" align="left" width="100">
+                                                    <label for="archivonuevo">Nuevo nombre archivo</label>
+                                                </td>
+
+                                                <td valign="top" align="left" width="110">
+                                                    <label for="subirarchivo"> Seleccionar Archivo</label>
+                                                </td>
+
+                                                <td valign="top" align="left" width="30">
+                                                     
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td valign="top" align="left">
+                                                    <input name="iddetarch" type="text" class="fade" id="iddetarch" value="" onblur="" dir="rtl" readonly="readonly" required/>
+                                                </td>
+
+                                                <td valign="middle" align="left">
+                                                    <div id="btnDescargarRendArch"><a href="javascript:void(0);" data-accion="descargarrendarch" title="Descargar Archivo" ><img src="<?php echo Conexion::ruta();?>public/images/save_download_32.png" border="0" width="24" height="24" /></a></div>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <input name="archivodetarch" type="text" class="fade" id="archivodetarch" value="" onblur="" readonly="readonly" required/>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <input name="nuevoarchivo" type="text" class="fade" id="nuevoarchivo" value="" onblur="" readonly="readonly" required/>
+                                                </td>
+
+                                                <td valign="top" align="left">
+                                                    <input name="subirarchivo" type="file" class="fade" id="subirarchivo" value="" onblur="" required/>
+                                                </td>
+
+                                                <td valign="middle" align="left">
+                                                    <div id="btnGuardarRendArch"><a href="javascript:void(0);" data-accion="guardarrendarch" title="Guardar Registro" ><img src="<?php echo Conexion::ruta();?>public/images/save_as.png" border="0" width="24" height="24" /></a></div>
+                                                </td>                                                 
+                                            </tr>       
+                                        </table>
+                                    </fieldset>
+                                </form>
+
+                                <div id="TablaDatos">
+                                    <table id="tablaArch" class="display" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>Archivo original</th>
+                                                <th>Nuevo nombre archivo</th>
+                                            </tr>
+                                        </thead>
+                                         
+                                        <tbody id="listadetarch">
+                                            
+                                        </tbody>
+                                        
+                                        <tfoot>
+                                        </tfoot>
+                                        
+                                    </table>  
+                                </div>
+                            </div>
+                    	</section>
+
+
+                        <div id="dialogo-borrarComp" title="Eliminar Registro" style="display:none;">
+                                <p>El registro se eliminará permanentemente de la Base de Datos. ¿Desea continuar?</p>
+                        </div>
+                        <div id="dialogo-nuevoAux" title="Nuevo Auxiliar" style="display:none;">
+                                <p>El auxiliar ingresado no existe en la Base de Datos. ¿Desea crearlo?</p>
+                        </div>
+                        <div id="dialogo-folioOC" title="Sin folio OC asignado" style="display:none;">
+                                <p>No cuenta con folios para confeccionar nuevas Ordenes de Compra. Contactese con el administrador del sistema.</p>
+                        </div>
+
+                        <div id="dialogo-maestroRend" title="Maestro de Registros" style="display:none;">
+                                <table id="tableRend" class="display" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Folio</th>
+                                            <th>Descripcion</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="listaencrend">
+                                        
+                                    </tbody>
+                                    
+                                    <tfoot>
+                                    </tfoot>
+                                    
+                                </table>  
+                        </div>
+
+                        <div id="dialogo-maestroAux" title="Maestro de Registros" style="display:none;">
+                                <table id="tableAux" class="display" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Rut</th>
+                                            <th>Proveedor</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="listaencaux">
+                                        
+                                    </tbody>
+                                    
+                                    <tfoot>
+                                    </tfoot>
+                                    
+                                </table>  
+                        </div>
+                        <div id="dialogo-maestroMatriz" title="Maestro de Registros" style="display:none;">
+                                <table id="tableMatriz" class="display" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Codigo</th>
+                                            <th>Cuenta-Centro</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="listaencmatriz">
+                                        
+                                    </tbody>
+                                    
+                                    <tfoot>
+                                    </tfoot>
+                                    
+                                </table>  
+                        </div>
+                        <div id="dialogo-maestroCentro" title="Maestro de Registros" style="display:none;">
+                                <table id="tableCentro" class="display" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Codigo</th>
+                                            <th>Nombre</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="listaenccentro">
+                                        
+                                    </tbody>
+                                    
+                                    <tfoot>
+                                    </tfoot>
+                                    
+                                </table>  
+                        </div>
+                        <div id="dialogo-maestroArt" title="Maestro de Registros" style="display:none;">
+                                <table id="tableArt" class="display" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Codigo</th>
+                                            <th>Nombre</th>
+                                            <th>UM</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="listaarticulos">
+                                        
+                                    </tbody>
+                                    
+                                    <tfoot>
+                                    </tfoot>
+                                    
+                                </table>  
+                        </div>
+
+                    </div>
+                    <!--  END PRIMARY CONTENT -->   
+                      
+                </div><!--  end div #content_wrapper -->
+                <!--  END CONTENT_WRAPPER -->
+        	</article>
+        </section>
+        
+        <aside>
+        	<!--  START SIDEBAR -->
+            <?php include("sidebar.phtml");?>
+            <!--  end div #sidebar -->
+            <!--  END SIDEBAR -->
+        
+        </aside>
+        
+        
+    </section>
+    
+    <footer>
+        <!--  START FOOTER -->
+        <div id="footer">
+            <p>
+            <?php include("footer.phtml");?>
+            </p>
+        </div>
+        <!--  END CEND -->
+    </footer>
+</body>
+</html>
+

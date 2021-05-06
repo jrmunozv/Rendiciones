@@ -1,0 +1,52 @@
+/* CSS Document */
+
+ul, ol{
+	list-style: none;
+}
+
+.nav li {
+	padding: 0px 0.5px;
+	display: block;
+		
+}
+			
+.nav li a{
+	background-color: #DDD;
+	color:#000;
+	font-weight: normal;
+	text-decoration: none;
+	padding: 3px 7px;
+	display: block;
+	font-size: 0.9em;
+	text-align:left;
+	transition: all 0s ease-in;
+	/*border-radius: 0.25em;	*/
+}
+			
+.nav li a:hover{
+	background-color: #CCF;
+	transition: all 0s ease-out;
+}
+			
+.nav > li{
+	float: left;
+}
+			
+.nav li ul{
+	display: none;
+	position: absolute;
+	min-width: 140px;
+}
+			
+.nav li:hover > ul{
+	display:block;
+}
+			
+.nav li ul li{
+	position: relative;	
+}
+			
+.nav li ul li ul{
+	right: -140px;
+	top: 0;
+}

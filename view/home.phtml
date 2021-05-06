@@ -1,0 +1,233 @@
+<!DOCTYPE html >
+<html lang= "es" >
+<head>
+	<title>..:: Home ::..</title>
+    <meta charset = "utf-8" />
+    <meta name="description" content="Bienvenido" />
+    <meta name = "viewport" content ="width= devide-with, inicial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href= "<?php echo Conexion::ruta();?>public/images/favicon.ico" />
+    <link rel="author" type="text/plain" href= "humans.txt" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href= "sitemap.xml" />
+    
+    <link href="<?php echo Conexion::ruta();?>public/css/smoothness/jquery-ui-1.8.23.custom.css" rel="stylesheet" media="screen">
+ 	
+    <link rel="stylesheet" href= "<?php echo Conexion::ruta();?>public/css/estilos.css" />
+    <link rel="stylesheet" href= "<?php echo Conexion::ruta();?>public/css/menu.css" />
+ 
+	<script type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/jquery/jquery.1.8.1.js"></script>
+	<script type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/jquery_ui/jquery-ui-1.8.23.custom.min.js"></script>
+    
+    
+	<script language="javascript" type="text/javascript" src="<?php echo Conexion::ruta();?>public/js/funciones.js"></script>
+  
+
+</head>
+
+<body onload="muestraReloj();">
+    <header>
+        <!--  START HEADER -->
+        <div id="header">
+            <!--  START HEAD_WRAP -->
+            <?php include("header.phtml");?>
+            <!--  END HEAD_WRAP -->
+        </div><!--  end div #header -->
+        <!--  END HEADER -->   
+    </header>
+    
+    <section id="contenido">
+        <section id="principal">
+            <article id="Info">
+                <!--  START CONTENT WRAPPER -->
+                <div id="content_wrapper">
+                    <!--  START PRIMARY CONTENT -->
+                    <div id="primary_content">
+                        <h2>Diversos Sistemas para la empresa seleccionada </h2>
+                        <p>Tiene que selecccionar la empresa, el mes y año de trabajo, para luego acceder a su perfil autorizado.</p>
+                        <form action="" method="post" name="form" enctype="multipart/form-data">
+							<fieldset>
+                            	<legend>Seleccionar empresa</legend>
+                                <table>
+                                    <tr>
+                                        <td valign="top" align="left">
+                                            <label for="empresa">Empresa:</label>
+                                        </td>
+                                        <td valign="top" align="left">
+                                             <?php if(isset($_SESSION["empresa"])){$form="empresaactiva";}else{$form="empresas";} ?>
+                                            <select name="empresa" id="empresa">
+                                                <option value="0">Seleccione empresa</option>
+                                                <?php
+												if($form=="empresas")
+												{
+													include("controller/formularioController.php");
+
+													for($i=0;$i<sizeof($datos);$i++)
+													{
+												?>
+													<option value="<?php echo $datos[$i]["id_empresa"];?>" title="<?php echo $datos[$i]["nombre"];?>"><?php echo $datos[$i]["nombre"];?></option>
+                           
+												<?php
+													}
+												}
+												elseif($form=="empresaactiva")
+												{
+													$tipo="empresa";
+
+													include("controller/formularioController.php");
+												}
+
+												?>
+                                            </select>
+                                        </td>
+                                    </tr>
+
+                                    <tr></tr>
+                                    <tr></tr>
+
+                                    <tr>
+                                        <td valign="top" align="left">
+                                            <label for="usuariosel">Usuario:</label>
+                                        </td>
+                                        <td valign="top" align="left">
+                                            <select name="usuariosel" id="usuariosel" <?php if(isset($_SESSION["usuariosel"])){echo "disabled='true'"; }?>>
+                                                <option value="0">Seleccione usuario</option>
+                                                <?php
+                                                if(isset($_SESSION["empresa"]))//$form=="empresaactiva")
+                                                {
+                                                    $tipo="usuariosel";
+
+                                                    include("controller/formularioController.php");
+
+                                                }
+                                                ?>
+
+
+                                            </select>
+                                        </td>
+                                    </tr>
+
+                                    <tr></tr>
+                                    <tr></tr>
+
+                                    <tr>
+                                        <td valign="top" align="left">
+                                            <label for="mes">Mes:</label>
+                                        </td>
+                                        <td valign="top" align="left">
+                                            <?php if(isset($_SESSION["mes"])){$mesform="mesactivo";}else{$mesform="mes";} ?>
+                                            <select name="mes" id="mes">
+                                                <?php
+                                                if($mesform=="mesactivo")
+                                                {
+                                                   
+                                                ?>
+                                                    <option value="<?php echo $_SESSION["mes"];?>" title="<?php echo $_SESSION["mes"];?>"><?php echo $_SESSION["mes"];?></option>                     
+                                                
+                                                <?php  
+                                                }
+
+                                                ?>
+
+                                                <option value="0">Seleccione mes</option>
+                                                <option value="Enero">Enero</option>
+                                                <option value="Febrero">Febrero</option>
+                                                <option value="Marzo">Marzo</option>
+                                                <option value="Abril">Abril</option>
+                                                <option value="Mayo">Mayo</option>
+                                                <option value="Junio">Junio</option>
+                                                <option value="Julio">Julio</option>
+                                                <option value="Agosto">Agosto</option>
+                                                <option value="Septiembre">Septiembre</option>
+                                                <option value="Octubre">Octubre</option>
+                                                <option value="Noviembre">Noviembre</option>
+                                                <option value="Diciembre">Diciembre</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+
+                                    <tr></tr>
+                                    <tr></tr>
+                                    
+                                    <tr>
+                                        <td valign="top" align="left">
+                                            <label for="ano">Año:</label>
+                                        </td>
+                                        <td valign="top" align="left">
+                                            <?php if(isset($_SESSION["ano"])){$anoform="anoactivo";}else{$anoform="ano";} ?>
+                                            <select name="ano" id="ano">                             
+                                                <?php
+                                                if($anoform=="anoactivo")
+                                                {
+                                                   
+                                                ?>
+                                                    <option value="<?php echo $_SESSION["ano"];?>" title="<?php echo $_SESSION["ano"];?>"><?php echo $_SESSION["ano"];?></option>                     
+                                                
+                                                <?php  
+                                                }
+
+                                                ?>
+
+                                                <option value="0">Seleccione año</option>
+                                                <option value="2020">2020</option>
+                                                <option value="2021">2021</option>
+                                                <option value="2022">2022</option>
+                                                <option value="2023">2023</option>
+                                                <option value="2024">2024</option>
+                                                <option value="2025">2025</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+
+                                    <tr></tr>
+                                    <tr></tr>
+                                    <tr></tr>
+                                    <tr></tr>
+                                 	
+                                    <tr>	
+                                        <td valign="top" align="left">
+                                            <input type="button" value="Seleccionar" title="Seleccionar" id="btnSeleccionar"onclick=""/>          
+                                        </td>
+                                       
+                                    </tr>
+                                       
+                                    <tr>
+                                    	<td valign="top" align="left">
+                                            <input type="hidden" name="grabar" value="si" />
+                                            <input type="hidden" id="reg" name="reg" value="0" />
+                                        </td>
+                                    </tr>
+                                    
+                                </table>
+                            </fieldset>
+						</form>
+                        
+                    </div>
+                    <!--  END PRIMARY CONTENT -->   
+                      
+                </div><!--  end div #content_wrapper -->
+                <!--  END CONTENT_WRAPPER -->
+        	</article>
+        </section>
+        
+        <aside>
+        	<!--  START SIDEBAR -->
+            <?php include("sidebar.phtml");?>
+            <!--  end div #sidebar -->
+            <!--  END SIDEBAR -->
+        
+        </aside>
+        
+        
+    </section>
+    
+    <footer>
+        <!--  START FOOTER -->
+        <div id="footer">
+            <p>
+            <?php include("footer.phtml");?>
+            </p>
+        </div>
+        <!--  END CEND -->
+    </footer>
+</body>
+</html>
+
